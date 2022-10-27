@@ -39,9 +39,10 @@ function countKlick() {
   
   div.style.position = 'absolute';
   div.style.top = Math.floor(Math.random() * (0))+ "px";
-  div.style.left = Math.floor(Math.random() * (500)) + "px";
+  div.style.left = Math.floor(Math.random() * (1500)) + "px"; // gen place width 0 to 1500 
   div.className = 'rain';
   div.style.opacity = '0';
+  div.style.fontSize = (Math.random() * 50) +"px";// font size random 1 to 50
 
   
   $("#letters").append(div);
@@ -49,4 +50,4 @@ function countKlick() {
 
 window.setInterval(function(){
   countKlick();
-}, 100);
+}, Math.random() * 100);
