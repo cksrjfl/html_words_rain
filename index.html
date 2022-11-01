@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Rain</title>
 </head>
-<body>
+<body id="body">
     <div class="wrap">
         <h1>Word Rain</h1>
         <form id="Input_text" onsubmit="return false;">
@@ -20,8 +20,23 @@
         <div id="letters">
       
         </div>
+        <div id="setting">
+            <div>
+                setting
+            <div>
+            <div>
+                <label for="Background Color">Background Color:</label>
+                <input type="color" id="back_color" value="#000000">
+            </div>
+            <div>
+                <label for="Background Color">Font Color:</label>
+                <input type="color" id="font_color" value="#FFFFFF">
+            </div>
+        </div>
+
       </div>
     
 </body>
 </html>
 <script type="text/javascript" src="rain.js"></script>
+<script type="text/javascript" src="change_css.js"></script>
