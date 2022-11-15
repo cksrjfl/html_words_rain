@@ -33,6 +33,8 @@ if (e.keyCode == 90) { klick = "ㅋ"; countKlick(); }
 if (e.keyCode == 27) { klick = "";}
 });
 
+setInterval(function(){
+  countKlick();},1000);
 //------------font size changer--------------------
 document.getElementById('Max_Font_Size').onchange = function(){
   max_font_size = document.getElementById("Max_Font_Size").value;
@@ -48,6 +50,10 @@ document.getElementById('Gen_Rate').onchange = function(){
   Gen_Rate = document.getElementById("Gen_Rate").value;
   var output= document.getElementById("Gen_Rate_value");
   output.innerText = Gen_Rate;
+  clearInterval(function(){
+    countKlick();});
+  window.setInterval(function(){
+    countKlick();},Gen_Rate);
 }
 //------ gen word rain div function
 document.getElementById('Input_text').onsubmit = function()
@@ -90,7 +96,6 @@ function countKlick() {
   $("#letters").append(div);
 }
 //--- random time to show letter clicker
-window.setInterval(function(){
+/*window.setInterval(function(){
   countKlick();
-  
-}, /* Math.random() * */ Gen_Rate);
+},  50); */
