@@ -1,5 +1,8 @@
-var klick = "#";
-
+let klick = "#"; //클릭받는 함수
+let max_font_size = 50; 
+let min_font_size = 1;
+let Gen_Rate = 100;
+//---------키입력 받는 함수
 $(document).keyup(function(e) {
 if (e.keyCode == 65) { klick = "ㅁ"; countKlick(); }
 if (e.keyCode == 66) { klick = "ㅠ"; countKlick(); }
@@ -30,30 +33,46 @@ if (e.keyCode == 90) { klick = "ㅋ"; countKlick(); }
 if (e.keyCode == 27) { klick = "";}
 });
 
+//------------font size changer--------------------
+document.getElementById('Max_Font_Size').onchange = function(){
+  max_font_size = document.getElementById("Max_Font_Size").value;
+  var output= document.getElementById("Max_Font_Size_value");
+  output.innerText = max_font_size;
+}
+document.getElementById('Min_Font_Size').onchange = function(){
+  min_font_size = document.getElementById("Min_Font_Size").value;
+  var output= document.getElementById("Min_Font_Size_value");
+  output.innerText = min_font_size;
+}
+document.getElementById('Gen_Rate').onchange = function(){
+  Gen_Rate = document.getElementById("Gen_Rate").value;
+  var output= document.getElementById("Gen_Rate_value");
+  output.innerText = Gen_Rate;
+}
+//------ gen word rain div function
 document.getElementById('Input_text').onsubmit = function()
 {
   event.preventDefault();
   let text = document.getElementById("Text_Input").value;
- // 여기까지 테스트 완료
   for(var i = 0; i < 20; i++){
     setTimeout(function(){
-      var div_2 = document.createElement("div"); // div 생성
-      var str_2 = document.createTextNode(text); // node에 text 입력
-      div_2.appendChild(str_2); // div에 node 넣기
+      var div_2 = document.createElement("div"); // gen div
+      var str_2 = document.createTextNode(text); // add text to node
+      div_2.appendChild(str_2); // put node to div
 
-      // 밑부터는 div 스타일 설정----------------------------------------------
+      //-------------div style setting
       div_2.style.position = 'absolute';
-      div_2.style.top = Math.floor(Math.random() * (0))+ "px";
-      div_2.style.left = Math.floor(Math.random() * (1500)) + "px"; // gen place width 0 to 1500 
+      div_2.style.top = Math.floor(Math.random() * (50))+ "px"; // gen y-co place between 0 to 50 px 
+      div_2.style.left = Math.floor(Math.random() * (1500)) + "px"; // gen x-co place between 0 to 1500 
       div_2.className = 'rain';
       div_2.style.opacity = '0';
-      div_2.style.fontSize = (Math.random() * 50) +"px";// font size random 1 to 50
+      div_2.style.fontSize = (min_font_size + (Math.random() * (max_font_size - min_font_size))) +"px";// font size random 1 to 50
       //------------------------------------------------------------------------------
       $("#letters").append(div_2);
-    },Math.random() * 5000);
+    },Math.random() * Gen_Rate);
   }
 }
-
+//---- click letter to show function
 function countKlick() {
   var div = document.createElement("div");
   var str = document.createTextNode(klick);
@@ -65,12 +84,13 @@ function countKlick() {
   div.style.left = Math.floor(Math.random() * (1500)) + "px"; // gen place width 0 to 1500 
   div.className = 'rain';
   div.style.opacity = '0';
-  div.style.fontSize = (Math.random() * 50) +"px";// font size random 1 to 50
+  div.style.fontSize = (min_font_size + (Math.random() * (max_font_size - min_font_size))) +"px";// font size random 1 to 50
 
   
   $("#letters").append(div);
 }
-
+//--- random time to show letter clicker
 window.setInterval(function(){
   countKlick();
-}, /* Math.random() * */ 100);
+  
+}, /* Math.random() * */ Gen_Rate);

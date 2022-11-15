@@ -2,12 +2,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Rain</title>
 </head>
 <body id="body">
@@ -32,11 +35,32 @@
                 <label for="Background Color">Font Color:</label>
                 <input type="color" id="font_color" value="#FFFFFF">
             </div>
-        </div>
+            
+            <div>
+                <label for="Max Font Size">Max Font Size:</label>
+                <input type="range" id="Max_Font_Size" type="text"
+                        min="1" max="200" value="50" />
+                <br>
+                <span> 현재 선택 값: <span id="Max_Font_Size_value">50</span></span>            </div>
+            </div>
+           <div>
+                <label for="Min Font Size">Min Font Size:</label>
+                <input type="range" id="Min_Font_Size" type="text"
+                        min="1" max="100" value="1" />
+                <br>1
+                <span> 현재 선택 값: <span id="Min_Font_Size_value">1</span></span>            </div>
+           </div>
+           <div>
+            <label for="Gen_no">Word generating rate:(lower is fast)</label>
+            <input type="range" id="Gen_Rate" type="text"
+                    min="1" max="2000" value="100" />
+            <br>
+            <span> 현재 선택 값: <span id="Gen_Rate_value">100</span></span>            </div>
+       </div>
 
       </div>
     
 </body>
 </html>
-<script type="text/javascript" src="rain.js"></script>
-<script type="text/javascript" src="change_css.js"></script>
+<script type="text/javascript" src="rain.js?testno=1"></script>
+<script type="text/javascript" src="change_css.js?testno=1"></script>
